@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>মার্কেট লিস্ট - ইসমাইল</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
+        .box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 350px; }
+        h2 { text-align: center; color: #333; margin-top: 0; }
+        .input-box { display: flex; gap: 8px; margin-bottom: 20px; }
+        input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; outline: none; }
+        button { background: #f39c12; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        ul { list-style: none; padding: 0; }
+        li { background: #f9f9f9; padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; border-radius: 4px; }
+        .del-btn { color: #e74c3c; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>🛒 মার্কেট লিস্ট</h2>
+        <div class="input-box">
+            <input type="text" id="item" placeholder="জিনিসের নাম...">
+            <button onclick="add()">Add</button>
+        </div>
+        <ul id="list"></ul>
+    </div>
+    <script>
+        function add() {
+            let input = document.getElementById('item');
+            if(input.value === "") return;
+            let ul = document.getElementById('list');
+            let li = document.createElement('li');
+            li.innerHTML = `<span>${input.value}</span> <span class="del-btn" onclick="this.parentElement.remove()">×</span>`;
+            ul.appendChild(li);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
